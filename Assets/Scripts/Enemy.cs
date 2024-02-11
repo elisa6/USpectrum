@@ -14,11 +14,10 @@ public class NewBehaviourScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-
     {
         live = 3;
         navMeshAgent = GetComponent<NavMeshAgent>();
-				playerTransform = FindAnyObjectByType<Player>().transform;
+		playerTransform = FindAnyObjectByType<Player>().transform;
     }
 
     // Update is called once per frame
@@ -30,8 +29,6 @@ public class NewBehaviourScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
-
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -42,7 +39,3 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 }
-
-
-
-
