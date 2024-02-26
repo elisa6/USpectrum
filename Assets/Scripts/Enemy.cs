@@ -7,40 +7,36 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    private NavMeshAgent navMeshAgent;
-    private Transform playerTransform;
-    private int live;
-    public TMP_Text liveTex;
+	private NavMeshAgent navMeshAgent;
+	private Transform playerTransform;
+	private int live;
+	public TMP_Text liveTex;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        live = 3;
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        playerTransform = FindAnyObjectByType<PlayerMove>().transform;
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		live = 3;
+		navMeshAgent = GetComponent<NavMeshAgent>();
+		playerTransform = FindAnyObjectByType<PlayerMove>().transform;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        navMeshAgent.destination = playerTransform.position;
+	// Update is called once per frame
+	void Update()
+	{
+		navMeshAgent.destination = playerTransform.position;
 
-        if (live == 0)
-        {
-            SceneManager.LoadScene("Game_over");
-        }
-    }
+		if (live == 0)
+		{
+			SceneManager.LoadScene("Game_over");
+		}
+	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            // Debug.Log("choco");
-            live--;
-            liveTex.text = live.ToString();
-
-        }
-    
-    }
-
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.transform.CompareTag("Player"))
+		{
+			live--;
+			liveTex.text = live.ToString();
+		}
+	}
 }

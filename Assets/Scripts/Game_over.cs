@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Game_over : MonoBehaviour
 {
-    void Start()
-    {
-        Invoke("LoadMainMenu", 3);
+	void Start()
+	{
+		Invoke("LoadMainMenu", 3);
 
-    }
+	}
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
+	public void LoadMainMenu()
+	{
+		SceneManager.LoadScene("MainMenu");
+	}
 }

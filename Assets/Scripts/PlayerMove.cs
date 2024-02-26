@@ -4,51 +4,34 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+	// variables 
+	public CharacterController controller;
 
-    // variables 
+	public float speed = 40f;
+	public float gravity = -10f;
 
-    public CharacterController controller;
+	public Transform groundCheck;
+	public float groundDistance = 0.3f;
+	public LayerMask groundMask;
 
-    public float speed = 40f;
+	Vector3 velocity;
 
-    public float gravity = -10f;
+	bool isGrounded;
 
-    public Transform groundCheck;
-    public float groundDistance = 0.3f;
-    public LayerMask groundMask;
+	// Update is called once per 
+	void Update()
+	{
+		isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-    Vector3 velocity;
+		// capturador de controles en el eje x y y
+		float x = Input.GetAxis("Horizontal");
+		float z = Input.GetAxis("Vertical");
 
-    bool isGrounded;
+		Vector3 move = transform.right * x + transform.forward * z;
 
+		controller.Move(move * speed * Time.deltaTime);
 
-
-
-    void Start()
-
-    {
-
-    }
-
-    // Update is called once per 
-    void Update()
-
-    {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        // capturador de controles en el eje x y y
-        float x = Input.GetAxis("Horizontal");
-
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * speed * Time.deltaTime);
-
-
-    }
-
+		velocity.y += gravity * Time.deltaTime;
+		controller.Move(velocity * speed * Time.deltaTime);
+	}
 }
