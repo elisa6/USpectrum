@@ -22,12 +22,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.childCount <= 0){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        if (transform.childCount <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
-    public void AddCollectible(){
+    public void AddCollectible()
+    {
         collectiblesNumber++;
         collectiblesNumbersText.text = collectiblesNumber.ToString();
     }

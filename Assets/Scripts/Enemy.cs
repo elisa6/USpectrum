@@ -17,7 +17,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         live = 3;
         navMeshAgent = GetComponent<NavMeshAgent>();
-		playerTransform = FindAnyObjectByType<Player>().transform;
+        playerTransform = FindAnyObjectByType<PlayerMove>().transform;
     }
 
     // Update is called once per frame
@@ -27,15 +27,20 @@ public class NewBehaviourScript : MonoBehaviour
 
         if (live == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Game_over");
         }
     }
 
-    private void OnCollisionEnter(Collision collision) {
-        if(collision.transform.CompareTag("Player")){
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            // Debug.Log("choco");
             live--;
             liveTex.text = live.ToString();
 
         }
+    
     }
+
 }
