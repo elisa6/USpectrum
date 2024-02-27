@@ -4,25 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Killzone : MonoBehaviour{
+public class Killzone : MonoBehaviour
+{
 
-    private int live;
-    public TMP_Text liveTex; 
+	private int live;
+	public TMP_Text liveTex;
 
-    public void Start(){
-        live = 3;
-    }
+	public void Start()
+	{
+		live = 3;
+	}
 
-    public void Update(){
-        if (live == 0) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+	public void Update()
+	{
+		if (live == 0)
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+	}
 
-    public void OnCollisionEnter(Collision collision){
-        if(collision.transform.CompareTag("Player")){
-            live--;
-            liveTex.text = live.ToString();
-        }
-    }
+	public void OnCollisionEnter(Collision collision)
+	{
+		if (collision.transform.CompareTag("Player"))
+		{
+			live--;
+			liveTex.text = live.ToString();
+		}
+	}
 }
