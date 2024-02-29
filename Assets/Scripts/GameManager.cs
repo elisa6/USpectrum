@@ -8,14 +8,12 @@ public class GameManager : MonoBehaviour
 {
 	public TMP_Text collectiblesNumbersText;
 	public TMP_Text totalCollectiblesNumbersText;
-    public AudioSource ballAudio;
 
-    private int collectiblesNumber;
+	private int collectiblesNumber;
 	private int totalcollectiblesNumber;
-    
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
 	{
 		totalcollectiblesNumber = transform.childCount;
 		totalCollectiblesNumbersText.text = totalcollectiblesNumber.ToString();
@@ -35,9 +33,4 @@ public class GameManager : MonoBehaviour
 		collectiblesNumber++;
 		collectiblesNumbersText.text = collectiblesNumber.ToString();
 	}
-    void OnCollisionEnter(Collision collision)
-    {
-        ballAudio.Play();
-    }
-
 }
