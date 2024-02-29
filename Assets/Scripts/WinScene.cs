@@ -8,7 +8,7 @@ public class WinScene : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		Invoke("LoadMainMenu",10);
+		Invoke("LoadMainMenu",3);
 	}
 
 	public void LoadMainMenu()
