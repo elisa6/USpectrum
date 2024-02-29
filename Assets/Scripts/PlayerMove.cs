@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
 	public Transform groundCheck;
 	public float groundDistance = 0.3f;
 	public LayerMask groundMask;
+	
 
 	Vector3 velocity;
 
@@ -34,4 +35,5 @@ public class PlayerMove : MonoBehaviour
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move(velocity * speed * Time.deltaTime);
 	}
+    
 }
